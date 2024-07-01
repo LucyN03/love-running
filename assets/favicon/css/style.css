@@ -18,14 +18,16 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #252525;
 }
 
-.hidden-heading{
+.hidden-heading {
     display: none;
 }
 
@@ -53,7 +55,7 @@ header a {
     list-style-type: none;
 }
 
-#menu > li {
+#menu>li {
     margin-bottom: 1em;
 }
 
@@ -88,9 +90,13 @@ nav {
 
 /* Main content */
 main {
-    /* Make main element take up any surplus space to push footer down */
+    /*Enlarge main element to push footer down*/
     flex: 1 0 auto;
+    /*Add margin at the top to prevent content from being covered by the header*/
     margin-top: 47px;
+    /*Enable flex properties for child elements*/
+    display: flex;
+    flex-direction: column;
 }
 
 /* Hero section */
@@ -113,7 +119,8 @@ main {
     padding-left: 10px;
 }
 
-#cover-text > h2, #cover-text > h3 {
+#cover-text>h2,
+#cover-text>h3 {
     color: #ffffff;
 }
 
@@ -129,8 +136,8 @@ main {
     font-size: 280%;
 }
 
-#benefits-physical > div,
-#benefits-mental > div {
+#benefits-physical>div,
+#benefits-mental>div {
     line-height: 20px;
     margin-bottom: 20px;
 }
@@ -144,7 +151,7 @@ main {
     margin: 5px 0;
 }
 
-#circle-cover-bg{
+#circle-cover-bg {
     background: url(../images/reasons-image.webp) no-repeat top center /cover;
     height: 90vw;
     width: 90vw;
@@ -155,19 +162,19 @@ main {
     max-height: 300px;
 }
 
-#benefits-image{
+#benefits-image {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-#times{
+#times {
     background: url(../images/dublin-city.webp) no-repeat center / cover;
     display: flex;
     flex-wrap: wrap;
 }
 
-#times div{
+#times div {
     color: #fafafa;
     background-color: rgba(0, 0, 0, .6);
     padding: 15px;
@@ -180,19 +187,65 @@ main {
     border: 2px solid white;
 }
 
-#times h3{
+#times h3 {
     /*overrides the heading color set in general styles*/
     color: #fafafa;
 }
 
 /*Gallery page*/
-#photos img{
+#photos img {
     width: 100%;
     line-height: 1em;
 }
 
 #photos {
     line-height: 0;
+}
+
+/*Sign Up page*/
+#signup{
+    background-image: url(../images/signup-image.webp);
+    background-size: cover;
+    background-position: 75%;
+    padding: 20px 10% 0 10%;
+    flex-grow: 1; 
+}
+
+#signup-form{
+    color: #ffffff;
+    background-color: rgba(60, 60, 60, .6);
+    padding: 30px;
+}
+
+#signup-form > h2{
+    color: #fafafa;
+    margin-bottom: 20px;
+}
+
+.text-input {
+    background: transparent;
+    color: #fafafa;
+    width: 100%;
+    height: 25px;
+    margin: 5px 0 20px 0;
+    border: 1px solid #fafafa;
+    border-radius: 2px;
+    padding: 0 5px;
+}
+
+.radio-buttons{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.join-button{
+    margin-top: 20px;
+    border-radius: 2px;
+    padding: 15px 32px;
+    font-size: 100%;
+    background-color: #454b1b;
+    color: #fafafa;
 }
 
 /* Footer */
@@ -212,7 +265,7 @@ main {
 
 /* Media query: large or landscape phones (576px and up) */
 @media screen and (min-width: 768px) {
-    #photos{
+    #photos {
         column-count: 2;
         column-gap: 0;
     }
@@ -220,6 +273,7 @@ main {
 
 /* Media query: tablets and larger (768px and up) */
 @media screen and (min-width: 768px) {
+
     /* Header */
     nav {
         display: block;
@@ -233,7 +287,7 @@ main {
         display: flex;
     }
 
-    #menu > li {
+    #menu>li {
         padding-left: 1rem;
     }
 
@@ -261,50 +315,73 @@ main {
 
     /*Reasons section*/
     #benefits-physical,
-    #benefits-mental{
+    #benefits-mental {
         display: flex;
         flex-direction: column;
         width: 100%;
     }
 
-    #benefits-physical > div,
-    #benefits-mental > div{
+    #benefits-physical>div,
+    #benefits-mental>div {
         width: 75%;
     }
 
-    #benefits-mental > div{
+    #benefits-mental>div {
         text-align: end;
         align-self: flex-end;
     }
 
     /* Gallery */
-    #photos{
+    #photos {
         column-count: 3;
         column-gap: 0;
+    }
+
+    /*sign up*/
+    #signup{
+        background-position: center;
+        position: relative;
+    }
+
+    #signup-form{
+        max-width: 400px;
+        position: absolute;
+        left: 10%;
+        top: 150px;
+    }
+
+    .text-input:hover{
+        border-color: #f16c6b;
+    }
+
+    .join-button:hover{
+        background-color: #fafafa;
+        color: #454b1b;
     }
 }
 
 /* Large devices (laptops and desktops, 992px and up) */
 @media screen and (min-width: 992px) {
-    #menu a:hover{
+    #menu a:hover {
         border-bottom: 1px solid #3a3a3a;
     }
 
     /* Gallery */
-    #photos{
+    #photos {
         column-count: 4;
         column-gap: 0;
     }
 }
 
-@media screen and (min-width: 1200px) {    
+@media screen and (min-width: 1200px) {
+
     /* Reasons section */
     #benefits {
         display: flex;
         flex-direction: row;
     }
 
-    #benefits > div {
+    #benefits>div {
         flex: 1;
     }
 
@@ -316,11 +393,11 @@ main {
         order: 1;
     }
 
-    #benefits-mental > div {
+    #benefits-mental>div {
         align-self: flex-start;
     }
 
-    #benefits-physical > div {
+    #benefits-physical>div {
         align-self: flex-end;
     }
 }
